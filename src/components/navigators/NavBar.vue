@@ -11,7 +11,7 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      menuHidden: true
+      menuHidden: false
     }
   },
   computed: {
