@@ -30,6 +30,11 @@ export default {
     toggleMenu() {
       this.menuHidden = !this.menuHidden
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.menuHidden = true
+    }, 3000)
   }
 }
 </script>
