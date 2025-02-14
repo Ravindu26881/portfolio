@@ -20,10 +20,12 @@
         <div class="row">
           <div v-for="item in filteredItems" :key="item.text" class="col-md-4 col-6 mb-4">
             <div class="card item shadow-sm p-3 text-center">
-              <img :src="item.img" alt="item" class="card-img-top item__img"/>
-              <div class="card-body">
-                <h5 class="card-title">{{ item.text }}</h5>
-                <p class="card-text text-muted">{{ item.price }}</p>
+              <div class="item-wrapper">
+                <img :src="item.img" alt="item" class="card-img-top item__img"/>
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.text }}</h5>
+                  <p class="card-text text-muted">{{ item.price }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -78,19 +80,31 @@ export default {
 }
 .company-logo {
   display: flex;
+  font-size: 52px;
+  margin-bottom: 18px;
 }
 .item__img {
   width: 140px;
 }
 .item {
   text-align: center;
+  margin-bottom: 12px;
 }
 .item-list__wrapper {
-  padding: 10px;
+  padding: 10px 10px 65px 10px;
   background: white;
   border-radius: 21px;
   box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 15%);
   margin-top: 26px;
+}
+.item-wrapper {
+  border-radius: 31px;
+  padding: 34px;
+  transition: 0.3s;
+}
+.item-wrapper:hover {
+  background: rgb(83 34 0 / 11%);
+  transition: 0.3s;
 }
 .filter-search-input {
   width: 100%;

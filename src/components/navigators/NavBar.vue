@@ -29,6 +29,9 @@ export default {
   methods: {
     toggleMenu() {
       this.menuHidden = !this.menuHidden
+      setTimeout(() => {
+        this.menuHidden = true
+      }, 5000)
     }
   },
   mounted() {
@@ -52,7 +55,7 @@ export default {
   box-shadow: -1px 0px 20px 0px #0000006e;
   position: absolute;
   align-items: flex-start;
-  right: -241px;
+  right: -224px;
   padding: 14px 20px;
   transition: 0.2s ease-in-out;
 }
@@ -71,7 +74,7 @@ export default {
 }
 
 .gc-navbar__wrapper-hidden:hover {
-  right: -230px;
+  right: -211px;
   transition: 0.1s ease-in-out;
 }
 

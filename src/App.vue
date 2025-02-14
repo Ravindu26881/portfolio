@@ -19,6 +19,14 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+}
 
 #app {
   user-select: none;
