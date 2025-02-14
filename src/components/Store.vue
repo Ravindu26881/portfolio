@@ -24,6 +24,7 @@
                 <img :src="item.img" alt="item" class="card-img-top item__img"/>
                 <div class="card-body">
                   <h5 class="card-title">{{ item.text }}</h5>
+
                   <p class="card-text text-muted">{{ item.price }}</p>
                 </div>
               </div>
@@ -45,18 +46,18 @@ export default {
     return {
       searchQuery: "",
       itemList: [
-        { img: require('@/assets/img/shoe1.png'), text: 'Runners', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Walkers', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe1.png'), text: 'Joggers', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Sprinters', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe1.png'), text: 'Casual', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Sneakers', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe1.png'), text: 'Runners', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Walkers', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe1.png'), text: 'Joggers', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Sprinters', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe1.png'), text: 'Casual', price: 'Coming Soon' },
-        { img: require('@/assets/img/shoe2.png'), text: 'Sneakers', price: 'Coming Soon' }
+        { img: require('@/assets/img/shoe1.png'), text: 'Air Glide', color: 'Red', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Trail Blazer', color: 'Blue', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe1.png'), text: 'Urban Sprint', color: 'Black', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Hyper Flex', color: 'White', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe1.png'), text: 'Cloud Runner', color: 'Grey', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Velocity Pro', color: 'Green', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe1.png'), text: 'Stratus Max', color: 'Yellow', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Aero Swift', color: 'Orange', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe1.png'), text: 'Zen Walker', color: 'Brown', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Infinity Grip', color: 'Purple', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe1.png'), text: 'Pulse Stride', color: 'Pink', price: 'Coming Soon' },
+        { img: require('@/assets/img/shoe2.png'), text: 'Momentum X', color: 'Beige', price: 'Coming Soon' }
       ]
     };
   },
@@ -112,5 +113,15 @@ export default {
   border-radius: 21px;
   padding: 10px;
   margin-bottom: 15px;
+  font-family: fantasy;
+  padding: 22px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.filter-search-input:focus {
+  border-color: rgb(83 34 0 / 11%);
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px  rgb(83 34 0 / 11%);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px  rgb(83 34 0 / 11%);
 }
 </style>
