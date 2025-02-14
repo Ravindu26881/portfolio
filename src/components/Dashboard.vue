@@ -19,7 +19,7 @@
       </div>
       <div style="    min-height: 100px;">
         <div class="view-more__link"  @mouseover="handleViewMoreMouseEnter"
-             @mouseleave="handleViewMoreMouseLeave">
+             @mouseleave="handleViewMoreMouseLeave" @click="navigateToStore">
           View More
         </div>
         <div class="view-more_background-text-2" :class="isViewMoreHovered ? 'view-more_background-text-2__visible' : ''">View More</div>
@@ -67,6 +67,9 @@ export default {
       if (!this.isMobile) {
         this.isViewMoreHovered = false;
       }
+    },
+    navigateToStore() {
+        this.$router.push('/store');
     }
   }
 }
@@ -83,7 +86,7 @@ export default {
 }
 
 .company-logo {
-  color: #ffffff;
+  color: #5b5b5b;
   justify-content: flex-start;
   line-height: 1;
   font-size: 45px;
@@ -147,7 +150,7 @@ export default {
 }
 
 .view-more__link:hover {
-  color: white;
+  color: #5b5b5b;
   cursor: pointer;
   transition: 0.2s;
 }

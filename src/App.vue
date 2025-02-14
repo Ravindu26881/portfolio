@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   background: #bdbdbd;
-  overflow: hidden;
+  overflow-x: hidden;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
