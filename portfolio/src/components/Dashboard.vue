@@ -15,7 +15,7 @@
         <div class="welcome_header welcome_header-2" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
         <div class="welcome_header welcome_header-3" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
         </div>
-        <img src="../assets/img/shoe2.png" class="image-item__large" :class="isViewMoreHovered ? 'image-item__large__view-more' : ''"/>
+        <img src="../assets/img/shoe2.png"  class="image-item__large" :class="isViewMoreHovered ? 'image-item__large__view-more' : ''"/>
         <img src="../assets/img/shoe1.png" class="view-more__second-item" :class="isViewMoreHovered ? 'view-more__second-item__visible' : ''"/>
       </div>
       <div style="    min-height: 100px;">
