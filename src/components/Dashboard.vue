@@ -8,7 +8,6 @@
       <div class="company-logo" v-if="isMobile">
         <div>F</div><div style="color: #53220080;">W</div>
       </div>
-
       <div class="hottest-item">
         <div class="hottest-item__background-text">
         <div class="welcome_header welcome_header-1" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
