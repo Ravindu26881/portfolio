@@ -1,6 +1,6 @@
 <template>
   <div class="gc-navbar__wrapper" :class="menuClasses">
-    <img @click="toggleMenu" src="https://img.icons8.com/?size=256&id=m1HKje56PCAW&format=png" style="    height: 36px; filter: invert(1)"/>
+    <img v-if="!isMobile" @click="toggleMenu" src="https://img.icons8.com/?size=256&id=m1HKje56PCAW&format=png" style="    height: 36px; filter: invert(1)"/>
     <div class="gc-navbar__link">About Us</div>
     <div class="gc-navbar__link">Contact Us</div>
   </div>
@@ -18,9 +18,13 @@ export default {
     menuClasses() {
       return {
         'gc-navbar__wrapper-visible': !this.menuHidden,
-        'gc-navbar__wrapper-hidden': this.menuHidden
+        'gc-navbar__wrapper-hidden': this.menuHidden && !this.isMobile,
+        'gc-navbar__wrapper-mobile': this.isMobile
       }
-    }
+    },
+  },
+  props: {
+    isMobile: Boolean
   },
   methods: {
     toggleMenu() {
@@ -53,6 +57,14 @@ export default {
   transition: 0.6s ;
 }
 
+.gc-navbar__wrapper-mobile {
+  right: 0;
+  background: none;
+  box-shadow: none;
+  margin: inherit;
+  padding: 38px 20px 0 0;
+}
+
 .gc-navbar__wrapper-hidden:hover {
   right: -230px;
   transition: 0.1s ease-in-out;
@@ -72,4 +84,6 @@ export default {
 .gc-navbar__link {
   font-weight: 100;
 }
+
+
 </style>

@@ -1,9 +1,12 @@
 <template>
   <div class="gc-dashboard__wrapper">
-      <nav-bar/>
+      <nav-bar :isMobile="isMobile"/>
     <div class="gc-dashboard__elements">
-      <div class="company-logo">
+      <div class="company-logo" v-if="!isMobile">
         <div>Foot</div><div style="color: #53220080;">wear</div>
+      </div>
+      <div class="company-logo" v-if="isMobile">
+        <div>F</div><div style="color: #53220080;">W</div>
       </div>
 
       <div class="hottest-item">
@@ -15,7 +18,7 @@
         <img src="../assets/img/shoe2.png" class="image-item__large" :class="isViewMoreHovered ? 'image-item__large__view-more' : ''"/>
         <img src="../assets/img/shoe1.png" class="view-more__second-item" :class="isViewMoreHovered ? 'view-more__second-item__visible' : ''"/>
       </div>
-      <div>
+      <div style="    min-height: 100px;">
         <div class="view-more__link"  @mouseover="handleViewMoreMouseEnter"
              @mouseleave="handleViewMoreMouseLeave">
           View More
@@ -35,15 +38,36 @@ export default {
   },
   data() {
     return {
-      isViewMoreHovered: false
+      isViewMoreHovered: false,
+      isMobile: false
     }
   },
+  mounted() {
+    this.setIsMobile()
+  },
+  created() {
+    window.addEventListener("resize", this.setIsMobile);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.setIsMobile);
+  },
   methods : {
+    setIsMobile () {
+      if (window.innerWidth < 768) {
+        this.isMobile = true
+      } else {
+        this.isMobile = false
+      }
+    },
     handleViewMoreMouseEnter() {
-      this.isViewMoreHovered = true;
+      if (!this.isMobile) {
+        this.isViewMoreHovered = true;
+      }
     },
     handleViewMoreMouseLeave() {
-      this.isViewMoreHovered = false;
+      if (!this.isMobile) {
+        this.isViewMoreHovered = false;
+      }
     }
   }
 }
@@ -51,17 +75,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.gc-dashboard__wrapper {
+  position: relative;
+}
 .gc-dashboard__elements {
   padding: 20px;
 }
 
 .company-logo {
   color: #ffffff;
-  width: 18vw;
+  justify-content: flex-start;
   line-height: 1;
   font-size: 45px;
   display: flex;
-  justify-content: center;
 }
 
 .welcome_header {
@@ -96,6 +123,7 @@ export default {
   max-width: 690px;
   transition: 0.2s;
 }
+
 
 .image-item__large__view-more {
   transition: 0.2s;
@@ -142,16 +170,18 @@ export default {
 
 .view-more_background-text-2 {
   position: absolute;
-  right: -100vw;
+  right: 145px;
   transition: 0.3s;
   top: 74vh;
   z-index: -1;
   font-size: 9vw;
   color: #53220080;
+  opacity: 0;
 }
 
 .view-more_background-text-2__visible {
   right: 145px;
+  opacity: 1;
   transition: 0.3s;
 }
 
@@ -168,6 +198,23 @@ export default {
   transition: 0.3s;
 }
 
+
+@media screen and (max-width: 768px) {
+  .welcome_header {
+    top: 99vw;
+  }
+  .welcome_header-2 {
+    top: 105vw;
+  }
+  .welcome_header-3 {
+    top: 111vw;
+  }
+  .image-item__large {
+    width: 87vw;
+    position: relative;
+    top: 48px;
+  }
+}
 
 
 
