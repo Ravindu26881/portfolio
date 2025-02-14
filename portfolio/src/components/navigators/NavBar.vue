@@ -36,14 +36,14 @@ export default {
   display: flex;
   justify-content: flex-end;
   gap: 16px;
-  background: #2c3e50;
+  background: #53220080;
   border-radius: 66px;
   margin: 28px;
   color: #ffffff;
   box-shadow: -1px 0px 20px 0px #0000006e;
   position: absolute;
   align-items: flex-start;
-  right: -230px;
+  right: -241px;
   padding: 14px 20px;
   transition: 0.2s ease-in-out;
 }
@@ -54,7 +54,7 @@ export default {
 }
 
 .gc-navbar__wrapper-hidden:hover {
-  right: -196px;
+  right: -230px;
   transition: 0.1s ease-in-out;
 }
 

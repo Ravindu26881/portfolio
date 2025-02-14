@@ -2,7 +2,9 @@
   <div class="gc-dashboard__wrapper">
       <nav-bar/>
     <div class="gc-dashboard__elements">
-      <div class="company-logo">Footwear</div>
+      <div class="company-logo">
+        <div>Foot</div><div style="color: #53220080;">wear</div>
+      </div>
 
       <div class="hottest-item">
         <div class="hottest-item__background-text">
@@ -10,14 +12,14 @@
         <div class="welcome_header welcome_header-2" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
         <div class="welcome_header welcome_header-3" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
         </div>
-        <img src="../assets/img/shoe2.png" class="image-item__large"/>
+        <img src="../assets/img/shoe2.png" class="image-item__large" :class="isViewMoreHovered ? 'image-item__large__view-more' : ''"/>
+        <img src="../assets/img/shoe1.png" class="view-more__second-item" :class="isViewMoreHovered ? 'view-more__second-item__visible' : ''"/>
       </div>
       <div>
         <div class="view-more__link"  @mouseover="handleViewMoreMouseEnter"
              @mouseleave="handleViewMoreMouseLeave">
           View More
         </div>
-        <div class="view-more_background-text-1" :class="isViewMoreHovered ? 'view-more_background-text-1__visible' : ''">View More</div>
         <div class="view-more_background-text-2" :class="isViewMoreHovered ? 'view-more_background-text-2__visible' : ''">View More</div>
       </div>
     </div>
@@ -58,6 +60,8 @@ export default {
   width: 18vw;
   line-height: 1;
   font-size: 45px;
+  display: flex;
+  justify-content: center;
 }
 
 .welcome_header {
@@ -75,7 +79,7 @@ export default {
 }
 
 .welcome_header-3 {
-  top: 34vw;
+  top: 16vw;
 }
 
 .welcome_header__hide {
@@ -83,10 +87,19 @@ export default {
   transition: 0.3s;
 }
 
+.hottest-item__background-text {
+  color: #53220080;
+}
+
 .image-item__large {
   width: 60vw;
   max-width: 690px;
   transition: 0.2s;
+}
+
+.image-item__large__view-more {
+  transition: 0.2s;
+  margin-left: 206px;
 }
 
 .welcome_header:hover {
@@ -134,10 +147,24 @@ export default {
   top: 74vh;
   z-index: -1;
   font-size: 9vw;
+  color: #53220080;
 }
 
 .view-more_background-text-2__visible {
   right: 145px;
+  transition: 0.3s;
+}
+
+.view-more__second-item {
+  position: absolute;
+  left: -100vw;
+  z-index: -1;
+  width: 36vw;
+  transition: 0.3s;
+}
+
+.view-more__second-item__visible {
+  left: 16vw;
   transition: 0.3s;
 }
 
