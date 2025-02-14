@@ -3,6 +3,9 @@
     <div class="company-logo" v-if="!isMobile">
       <div>Foot</div><div style="color: #53220080;">wear</div><div>Store</div>
     </div>
+    <div class="company-logo" v-if="isMobile">
+      <div>F</div><div style="color: #53220080;">W</div><div>Store</div>
+    </div>
 
     <div class="item-list__wrapper">
       <div class="filter-wrapper">
@@ -44,6 +47,7 @@ export default {
   name: 'ItemStore',
   data() {
     return {
+      isMobile: false,
       searchQuery: "",
       itemList: [
         { img: require('@/assets/img/shoe1.png'), text: 'Air Glide', color: 'Red', price: 'Coming Soon' },
@@ -60,6 +64,24 @@ export default {
         { img: require('@/assets/img/shoe2.png'), text: 'Momentum X', color: 'Beige', price: 'Coming Soon' }
       ]
     };
+  },
+  created() {
+    window.addEventListener("resize", this.setIsMobile);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.setIsMobile);
+  },
+  methods: {
+    setIsMobile () {
+      if (window.innerWidth < 768) {
+        this.isMobile = true
+      } else {
+        this.isMobile = false
+      }
+    },
+  },
+  mounted() {
+    this.setIsMobile()
   },
   computed: {
     filteredItems() {
@@ -108,15 +130,15 @@ export default {
   transition: 0.3s;
 }
 .filter-search-input {
-  width: 100%;
+  width: -webkit-fill-available;
   max-width: 300px;
   border-radius: 21px;
-  padding: 10px;
   margin-bottom: 15px;
   font-family: fantasy;
   padding: 22px;
   margin-left: 15px;
   margin-top: 15px;
+  margin-right: 15px;
 }
 
 .filter-search-input:focus {
