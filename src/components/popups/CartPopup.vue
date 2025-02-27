@@ -97,6 +97,7 @@ export default {
 }
 
 .close-btn {
+  padding: 0;
   position: absolute;
   top: 10px;
   right: 22px;

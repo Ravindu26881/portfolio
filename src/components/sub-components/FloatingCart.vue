@@ -50,6 +50,8 @@ export default {
   border-radius: 38px;
   transition: 0.2s;
   box-shadow: 0px 0px 6px 0px rgb(0 0 0 / 75%);
+  width: 66px;
+  height: 66px;
 }
 .floating-cart:hover {
   cursor: pointer;
