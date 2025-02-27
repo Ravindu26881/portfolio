@@ -75,7 +75,7 @@ export default {
   background: none;
   box-shadow: none;
   margin: inherit;
-  padding: 44px 16px 0 0;
+  padding: 22px 16px 0 0;
   color: rgba(83, 34, 0, 0.5);
   gap: 6px;
   svg {
