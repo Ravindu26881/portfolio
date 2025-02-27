@@ -1,6 +1,7 @@
 <template>
   <div v-if="isOpen" class="popup-overlay cart-popup" >
     <div class="popup-content">
+      <div class="popup-body">
       <button class="close-btn" @click="closePopup">✖</button>
       <div class="cart-header">Cart</div>
       <div v-if="items.length < 1" class="cart-empty-text">You have 0 items in your cart.</div>
@@ -34,6 +35,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -180,6 +182,21 @@ export default {
 .item-buy-now:hover {
   transition: 0.3s;
   box-shadow: 0px 0px 20px 0px rgb(105 151 61);
+}
+
+@media screen and (max-width: 768px) {
+  .item-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .popup-content {
+    padding: 54px 20px 20px 20px;
+  }
+  .popup-body {
+    overflow: scroll;
+    max-height: 60vh;
+    padding-bottom: 34px;
+  }
 }
 
 </style>

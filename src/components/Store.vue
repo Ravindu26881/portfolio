@@ -146,4 +146,13 @@ export default {
   webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px  rgb(83 34 0 / 11%);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px  rgb(83 34 0 / 11%);
 }
+
+@media screen and (max-width: 768px) {
+  .item-wrapper {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+
 </style>

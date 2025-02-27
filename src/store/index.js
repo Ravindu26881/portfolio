@@ -151,16 +151,20 @@ export default createStore({
   },
   mutations: {
     showItemPopup (state, payload) {
+      document.body.style.overflow = 'hidden';
       state.itemPopupId = payload
       state.showItemPopup = true
     },
     hideItemPopup (state) {
+      document.body.style.overflow = '';
       state.showItemPopup = false
     },
     showCartPopup (state) {
+      document.body.style.overflow = 'hidden';
       state.showCartPopup = true
     },
     hideCartPopup (state) {
+      document.body.style.overflow = '';
       state.showCartPopup = false
     },
     showFloatingCart (state) {

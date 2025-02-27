@@ -1,6 +1,7 @@
 <template>
   <div v-if="isOpen" class="popup-overlay item-popup" >
     <div class="popup-content">
+      <div class="popup-body">
       <button class="close-btn" @click="closePopup">✖</button>
       <h2>{{ item.text }}</h2>
       <div class="item-description" >{{item.description}}</div>
@@ -104,7 +105,7 @@
   </div>
 </div>
 </div>
-
+    </div>
   </div>
 </template>
 
@@ -457,5 +458,65 @@ export default {
 .item-remove-from-cart:hover {
   transition: 0.3s;
   text-shadow: 0 0 10px rgb(144 46 46 / 8%), 0 0 20px rgb(144 46 46 / 60%), 0 0 30px rgb(255 255 255);
+}
+
+@media screen and (max-width: 768px) {
+  .item-popup__preview-image {
+    width: 211px;
+  }
+  .item-popup__wrapper {
+    display: block;
+  }
+  .color-container {
+    margin-top: 22px;
+  }
+  .color-circle {
+    width: 25px;
+    height: 25px;
+  }
+  .item-price {
+    margin-top: 22px;
+  }
+  .item-buy {
+    position: unset;
+    border-radius: 21px;
+    width: 100%;
+  }
+  .item-remove-from-cart,
+  .item-add-to-cart {
+    position: unset;
+    width: 100%;
+    justify-content: center;
+    border-radius: 21px;
+    padding: 11px;
+    margin-bottom: 13px;
+    margin-top: 39px;
+  }
+
+  .popup-content {
+    padding: 54px 20px 20px 20px;
+  }
+  .popup-body {
+    overflow: scroll;
+    max-height: 60vh;
+  }
+  .options-select__option {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .options-select__add {
+    position: unset;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .options-select__visible {
+    padding: 50px 20px;
+    overflow: scroll;
+    padding-bottom: 10px;
+  }
 }
 </style>
