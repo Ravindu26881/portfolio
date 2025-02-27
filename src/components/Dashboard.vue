@@ -43,6 +43,7 @@ export default {
   },
   mounted() {
     this.setIsMobile()
+    this.$store.commit('hideFloatingCart');
   },
   created() {
     window.addEventListener("resize", this.setIsMobile);
