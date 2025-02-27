@@ -149,8 +149,15 @@ export default {
 
 @media screen and (max-width: 768px) {
   .item-wrapper {
-    padding-bottom: 0;
-    padding-top: 0;
+    padding: 0;
+  }
+  .row {
+    display: flex ;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .col-md-4 {
+    width: 47%;
   }
 }
 
