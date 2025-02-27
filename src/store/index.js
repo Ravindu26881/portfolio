@@ -128,7 +128,10 @@ export default createStore({
     itemPopupId: 0,
     showItemPopup: false,
     showCartPopup: false,
-    showFloatingCart: false
+    showFloatingCart: false,
+    showBillingPopup: false,
+    billingPopupType: '',
+    billingPopupItems: []
   },
   getters: {
     getItems: state => state.itemList,
@@ -137,6 +140,8 @@ export default createStore({
     getCartItems: state => state.cartItems,
     getCartItemCount: state => state.cartItems.length,
     getShowFloatingCart: state => state.showFloatingCart,
+    getShowBillingPopup: state => state.showBillingPopup,
+    getBillingItems: state => state.billingPopupItems,
     getItemPopupId: state => state.itemPopupId,
     getItemById: (state) => (id) => {
       return state.itemList.find(item => item.id === id);
@@ -172,6 +177,16 @@ export default createStore({
     },
     hideFloatingCart (state) {
       state.showFloatingCart = false
+    },
+    showBillingPopup (state, payload) {
+      document.body.style.overflow = 'hidden';
+      state.billingPopupType = payload.type //'single' or 'multiple'
+      if (payload.type === 'single') {
+        state.billingPopupItems = [payload.item]
+      } else {
+        state.billingPopupItems = payload.items
+      }
+      state.showBillingPopup = true
     },
     addToCart(state, item) {
       const existingItem = state.cartItems.find(cartItem => cartItem.id === item.id);

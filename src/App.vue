@@ -6,6 +6,7 @@
   <transition  name="fade" appear>
     <cart-popup :isOpen="showCartPopup"  @close="hideCartPopup"/>
   </transition>
+  <billing-popup :isOpen="showBillingPopup"/>
   <floating-cart v-if="showFloatingCart"/>
 </template>
 
@@ -14,7 +15,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: "App",
   computed: {
-    ...mapGetters(['getShowItemPopup', 'getItemPopupId', 'getShowCartPopup', 'getShowFloatingCart']),
+    ...mapGetters(['getShowItemPopup', 'getItemPopupId', 'getShowCartPopup', 'getShowFloatingCart', 'getShowBillingPopup']),
     showItemPopup() {
       return this.getShowItemPopup;
     },
@@ -23,6 +24,9 @@ export default {
     },
     showFloatingCart() {
       return this.getShowFloatingCart;
+    },
+    showBillingPopup() {
+      return this.getShowBillingPopup;
     },
     itemId() {
       return this.getItemPopupId;
@@ -128,4 +132,5 @@ nav a.router-link-exact-active {
 import ItemPopup from "@/components/popups/ItemPopup.vue";
 import FloatingCart from "@/components/sub-components/FloatingCart.vue";
 import CartPopup from "@/components/popups/CartPopup.vue";
+import BillingPopup from "@/components/popups/BillingPopup.vue";
 </script>
