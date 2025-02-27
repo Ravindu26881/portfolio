@@ -197,6 +197,9 @@ export default {
     max-height: 60vh;
     padding-bottom: 34px;
   }
+  .cart-empty-text {
+    padding: 25px;
+  }
 }
 
 </style>
