@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="popup-overlay cart-popup" >
+  <div v-if="isOpen" class="popup-overlay cart-popup" @click.self="closePopup">
     <div class="popup-content">
       <div class="popup-body">
       <button class="close-btn" @click="closePopup">✖</button>
