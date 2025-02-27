@@ -152,7 +152,13 @@ export default createStore({
       } else {
         return false;
       }
-    }
+    },
+    getCartTotal: (state) => {
+      return state.cartItems.reduce((total, item) => {
+        const priceNumber = parseFloat(item.price.replace(/[$,]/g, ""));
+        return total + priceNumber * item.quantity;
+      }, 0).toFixed(2);
+    },
   },
   mutations: {
     showItemPopup (state, payload) {
@@ -184,9 +190,14 @@ export default createStore({
       if (payload.type === 'single') {
         state.billingPopupItems = [payload.item]
       } else {
-        state.billingPopupItems = payload.items
+        state.billingPopupItems = state.cartItems
       }
       state.showBillingPopup = true
+    },
+    hideBillingPopup (state) {
+      document.body.style.overflow = '';
+      state.billingPopupItems = []
+      state.showBillingPopup = false
     },
     addToCart(state, item) {
       const existingItem = state.cartItems.find(cartItem => cartItem.id === item.id);

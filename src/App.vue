@@ -6,7 +6,9 @@
   <transition  name="fade" appear>
     <cart-popup :isOpen="showCartPopup"  @close="hideCartPopup"/>
   </transition>
-  <billing-popup :isOpen="showBillingPopup"/>
+  <transition  name="fade" appear>
+    <billing-popup :isOpen="showBillingPopup" @close="hideBillingPopup"/>
+  </transition>
   <floating-cart v-if="showFloatingCart"/>
 </template>
 
@@ -38,6 +40,9 @@ export default {
     },
     hideCartPopup() {
       this.$store.commit('hideCartPopup');
+    },
+    hideBillingPopup() {
+      this.$store.commit('hideBillingPopup');
     }
   }
 }
