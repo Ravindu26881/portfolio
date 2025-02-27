@@ -127,7 +127,6 @@ export default {
   transition: 0.2s;
 }
 
-
 .image-item__large__view-more {
   transition: 0.2s;
   margin-left: 206px;
