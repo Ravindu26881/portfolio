@@ -366,6 +366,7 @@ export default {
 
 .item-popup__wrapper {
   display: flex;
+  justify-content: space-between;
   font-family: system-ui;
   font-weight: 600;
   gap: 30px;
