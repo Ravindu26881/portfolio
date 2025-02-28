@@ -1,9 +1,9 @@
 <template>
   <div class="store__wrapper">
-    <div class="company-logo" v-if="!isMobile">
+    <div class="company-logo" v-if="!isMobile" @click="navigateToDashboard">
       <div>Foot</div><div style="color: #53220080;">wear</div><div>Store</div>
     </div>
-    <div class="company-logo" v-if="isMobile">
+    <div class="company-logo company-logo__mobile" v-if="isMobile" @click="navigateToDashboard">
       <div>F</div><div style="color: #53220080;">W</div><div>Store</div>
     </div>
 
@@ -70,6 +70,9 @@ export default {
     },
     showItemDetails (item) {
      this.$store.commit('showItemPopup', item.id);
+    },
+    navigateToDashboard() {
+      this.$router.push('/');
     }
   },
   mounted() {
@@ -99,9 +102,19 @@ export default {
   align-items: center;
 }
 .company-logo {
+  cursor: pointer;
   display: flex;
   font-size: 52px;
   margin-bottom: 18px;
+  transition: 0.3s;
+}
+.company-logo:hover {
+  transition: 0.3s;
+  text-shadow: 0 0 10px rgb(0 0 0 / 1%), 0 0 20px white, 0 0 30px rgb(255 255 255);
+}
+.company-logo__mobile {
+  font-size: 27px;
+  margin-bottom: 0;
 }
 .item__img {
   width: 140px;
