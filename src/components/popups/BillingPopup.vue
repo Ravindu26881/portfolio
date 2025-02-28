@@ -27,10 +27,10 @@
             <div>Confirm</div>
           </div>
         </div>
-        <div style="font-family: system-ui;" v-if="state==='billing'" class="checkout-wrapper">
+        <div style="font-family: system-ui;" v-if="state==='billing'" class="billing-wrapper">
           <h4 class="text-2xl font-bold mb-4" style="margin-bottom: 22px;">Billing</h4>
           <div class="item-wrapper">
-            <div>
+            <div class="billing-delivery-info-wrapper">
               <div class="billing-section-header">Delivery Info</div>
               <div class="billing-input-header">Shipping Address</div>
               <input type="text" class="form-control" placeholder="Enter your shipping address" />
@@ -39,7 +39,7 @@
               <div class="billing-input-header">Contact No</div>
               <input type="number" class="form-control" placeholder="Enter your Contact No" />
             </div>
-            <div>
+            <div class="billing-payment-info-wrapper">
               <div class="billing-section-header">Payment Details</div>
               <div class="billing-input-header">Card Number</div>
               <input type="number" class="form-control" placeholder="Enter your Card Number" />
@@ -166,6 +166,7 @@ export default {
   border-bottom-right-radius: 21px;
   transition: 0.3s;
   color: white;
+
 }
 
 .button-proceed:hover {
@@ -191,4 +192,35 @@ input {
   font-size: 20px;
   margin-bottom: 50px;
 }
+
+.billing-wrapper {
+  .item-wrapper {
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup-content {
+    min-width: 365px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .popup-body {
+    max-height: 70vh;
+    overflow: scroll;
+  }
+  .billing-wrapper {
+    .item-wrapper {
+      flex-direction: column;
+      padding-bottom: 40px;
+    }
+    .billing-delivery-info-wrapper {
+      margin-bottom: 20px;
+    }
+    .button-proceed {
+      box-shadow: -20px -17px 20px 8px rgb(255 255 255 / 83%);
+    }
+  }
+}
+
 </style>
