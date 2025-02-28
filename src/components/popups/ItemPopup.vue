@@ -207,7 +207,6 @@ export default {
 
 .options-select__add {
   font-weight: 600;
-  font-family: system-ui;
   cursor: pointer;
   transition: 0.3s;
   color: white;
@@ -232,7 +231,6 @@ export default {
 }
 
 .quantity-selector {
-  font-family: system-ui;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -363,7 +361,6 @@ export default {
 }
 
 .options-select__sizes {
-  font-family: system-ui;
   display: flex;
   gap: 8px;
 }
