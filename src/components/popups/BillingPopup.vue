@@ -32,24 +32,37 @@
           <div class="item-wrapper">
             <div class="billing-delivery-info-wrapper">
               <div class="billing-section-header">Delivery Info</div>
-              <div class="billing-input-header">Shipping Address</div>
-              <input type="text" class="form-control" placeholder="Enter your shipping address" />
-              <div class="billing-input-header">Email</div>
-              <input type="email" class="form-control" placeholder="Enter your Email" />
+              <div class="billing-input-header">Name</div>
+              <input v-model="senderName" type="text" class="form-control" placeholder="Enter your name" />
+              <div class="billing-input-header" >Email</div>
+              <input v-model="senderEmail" type="email" class="form-control" placeholder="Enter your Email" />
               <div class="billing-input-header">Contact No</div>
-              <input type="number" class="form-control" placeholder="Enter your Contact No" />
+              <input v-model="contactNumber" type="number" class="form-control" placeholder="Enter your Contact No" />
+              <div class="billing-input-header">Delivery Address</div>
+              <input v-model="address" type="text" class="form-control" placeholder="Enter your address" />
+              <div class="billing-input-header">Message for seller</div>
+              <textarea v-model="message" type="text" class="form-control" placeholder="" />
             </div>
-            <div class="billing-payment-info-wrapper">
-              <div class="billing-section-header">Payment Details</div>
-              <div class="billing-input-header">Card Number</div>
-              <input type="number" class="form-control" placeholder="Enter your Card Number" />
-              <div class="billing-input-header">Exp Date</div>
-              <input type="number" class="form-control" placeholder="Enter your Card Exp Date" />
-              <div class="billing-input-header">CVC</div>
-              <input type="number" class="form-control" placeholder="Enter your Card CVC" />
-            </div>
+<!--            <div class="billing-delivery-info-wrapper">-->
+<!--              <div class="billing-section-header">Delivery Info</div>-->
+<!--              <div class="billing-input-header">Shipping Address</div>-->
+<!--              <input type="text" class="form-control" placeholder="Enter your shipping address" />-->
+<!--              <div class="billing-input-header">Email</div>-->
+<!--              <input type="email" class="form-control" placeholder="Enter your Email" />-->
+<!--              <div class="billing-input-header">Contact No</div>-->
+<!--              <input type="number" class="form-control" placeholder="Enter your Contact No" />-->
+<!--            </div>-->
+<!--            <div class="billing-payment-info-wrapper">-->
+<!--              <div class="billing-section-header">Payment Details</div>-->
+<!--              <div class="billing-input-header">Card Number</div>-->
+<!--              <input type="number" class="form-control" placeholder="Enter your Card Number" />-->
+<!--              <div class="billing-input-header">Exp Date</div>-->
+<!--              <input type="number" class="form-control" placeholder="Enter your Card Exp Date" />-->
+<!--              <div class="billing-input-header">CVC</div>-->
+<!--              <input type="number" class="form-control" placeholder="Enter your Card CVC" />-->
+<!--            </div>-->
           </div>
-          <div class="button-proceed" @click="changeState('success')">
+          <div class="button-proceed" @click="sendEmail">
             <div>Proceed</div>
           </div>
         </div>
@@ -62,6 +75,7 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
 
 export default {
   props: {
@@ -69,7 +83,13 @@ export default {
   },
   data() {
     return {
-      state: 'checkout' // checkout, billing, success
+      state: 'checkout', // checkout, billing, success,
+      senderName: '',
+      senderEmail: '',
+      orderedItems: '',
+      address: '',
+      contactNumber: '',
+      message: ''
     };
   },
   mounted() {
@@ -84,6 +104,27 @@ export default {
     closePopup() {
       this.state = 'checkout';
       this.$emit('close');
+    },
+    sendEmail() {
+      const mergedMessage = `
+          Sender Email: ${this.senderEmail}
+          Ordered Items: ${this.orderedItems}
+          Address: ${this.address}
+          Contact Number: ${this.contactNumber}
+          Message: ${this.message}
+        `;
+
+      const emailData = { to_name: "Seller", from_name: this.senderName, message: mergedMessage }
+      emailjs.send(
+          "service_cgesz1q",  // Replace with your EmailJS Service ID
+          "template_w9ml2fu", // Replace with your EmailJS Template ID
+          emailData,
+          "qkhVYI1C0NglAoB78"      // Replace with your EmailJS User ID
+      ).then(
+          response => console.log("Email sent successfully!", response),
+          error => console.log("Error sending email: " + error.text)
+      );
+      this.changeState('success')
     },
     changeState(state) {
       this.state = state;
@@ -197,6 +238,10 @@ input {
   .item-wrapper {
     margin-bottom: 90px;
   }
+}
+
+.billing-delivery-info-wrapper {
+  width: 90%;
 }
 
 @media screen and (max-width: 768px) {
