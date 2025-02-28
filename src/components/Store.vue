@@ -120,7 +120,8 @@ export default {
   width: 140px;
 }
 .item-price {
-  font-family: fantasy;
+  font-family: system-ui;
+  font-weight: 600;
 }
 .item {
   text-align: center;
@@ -147,11 +148,12 @@ export default {
   max-width: 200px;
   border-radius: 21px;
   margin-bottom: 15px;
-  font-family: fantasy;
   padding: 22px;
   margin-left: 20px;
   margin-top: 15px;
   margin-right: 15px;
+  font-family: system-ui;
+  font-weight: 600;
 }
 
 .filter-search-input:focus {
