@@ -8,17 +8,19 @@
     </div>
 
     <div class="item-list__wrapper">
-      <div class="filter-wrapper">
-        <input
-            type="text"
-            class="form-control filter-search-input"
-            placeholder="Search for items"
-            v-model="searchQuery"
-            aria-label="Search for items"
-            aria-describedby="button-addon2"
-        />
+      <div class="shop-header">
+        <div class="filter-wrapper">
+          <input
+              type="text"
+              class="form-control filter-search-input"
+              placeholder="Search for items"
+              v-model="searchQuery"
+              aria-label="Search for items"
+              aria-describedby="button-addon2"
+          />
+        </div>
+        <shopping-cart-button/>
       </div>
-
       <div class="">
         <div class="row-items">
           <div v-for="item in filteredItems" :key="item.text" class="">
@@ -44,8 +46,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import ShoppingCartButton from "@/components/buttons/ShoppingCartButton.vue";
 export default {
   name: 'ItemStore',
+  components: {ShoppingCartButton},
   data() {
     return {
       isMobile: false,
@@ -77,7 +81,6 @@ export default {
   },
   mounted() {
     this.setIsMobile()
-    this.$store.commit('showFloatingCart');
   },
   computed: {
     ...mapGetters(['getItems']),
@@ -94,6 +97,14 @@ export default {
 </script>
 
 <style scoped>
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 15px 22px;
+}
+
+
 .store__wrapper {
   padding: 20px;
   display: flex;
@@ -147,11 +158,7 @@ export default {
   width: -webkit-fill-available;
   max-width: 200px;
   border-radius: 21px;
-  margin-bottom: 15px;
   padding: 22px;
-  margin-left: 20px;
-  margin-top: 15px;
-  margin-right: 15px;
   font-family: system-ui;
   font-weight: 600;
 }
@@ -188,6 +195,8 @@ export default {
   .item-list__wrapper {
     padding: 0;
     width: 100vw;
+    padding-bottom: 22px;
+    padding-top: 12px;
   }
 }
 

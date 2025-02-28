@@ -1,13 +1,18 @@
 <template>
   <div class="gc-dashboard__wrapper">
-      <nav-bar :isMobile="isMobile"/>
-    <div class="gc-dashboard__elements">
+  <div class="dashboard-header">
+    <div class="logo">
       <div class="company-logo" v-if="!isMobile">
         <div>Foot</div><div style="color: #53220080;">wear</div>
       </div>
       <div class="company-logo" v-if="isMobile">
         <div>F</div><div style="color: #53220080;">W</div>
       </div>
+    </div>
+   <shopping-cart-button/>
+  </div>
+    <div class="gc-dashboard__elements">
+
       <div class="hottest-item">
         <div class="hottest-item__background-text">
         <div class="welcome_header welcome_header-1" :class="isViewMoreHovered ? 'welcome_header__hide' : ''">hottest This month</div>
@@ -29,11 +34,12 @@
 </template>
 
 <script>
-import NavBar from '@/components/navigators/NavBar.vue'
+import ShoppingCartButton from "@/components/buttons/ShoppingCartButton.vue";
+
 export default {
   name: 'DashBoard',
   components: {
-    NavBar
+    ShoppingCartButton
   },
   data() {
     return {
@@ -79,6 +85,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .gc-dashboard__wrapper {
   position: relative;
 }
@@ -87,7 +100,6 @@ export default {
 }
 
 .company-logo {
-  color: #5b5b5b;
   justify-content: flex-start;
   line-height: 1;
   font-size: 45px;
