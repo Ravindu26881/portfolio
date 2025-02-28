@@ -88,9 +88,10 @@ export default {
 .dashboard-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-left: 20px;
   margin-right: 20px;
+  margin-top: 20px;
 }
 .gc-dashboard__wrapper {
   position: relative;
@@ -150,13 +151,13 @@ export default {
 }
 
 .hottest-item {
-  min-height: 80vh;
+  min-height: 55vh;
 }
 
 .view-more__link {
   position: absolute;
   right: 10%;
-  color: #000000;
+  color: #454545;
   transition: 0.2s;
   font-size: 32px;
 }

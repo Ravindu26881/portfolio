@@ -76,8 +76,8 @@ export default {
 
 @font-face {
   font-family: 'MyFont';
-  src: url('@/assets/fonts/OvercameDemoRegular.ttf') format('truetype');
-  font-weight: normal;
+  src: url('@/assets/fonts/FugazOne-Regular.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
 

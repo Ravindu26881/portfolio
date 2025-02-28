@@ -116,7 +116,6 @@ export default {
   cursor: pointer;
   display: flex;
   font-size: 52px;
-  margin-bottom: 18px;
   transition: 0.3s;
 }
 .company-logo:hover {
@@ -193,6 +192,7 @@ export default {
     padding: 0;
   }
   .item-list__wrapper {
+    margin-top: 15px;
     padding: 0;
     width: 100vw;
     padding-bottom: 22px;

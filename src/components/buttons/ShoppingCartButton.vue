@@ -53,6 +53,7 @@ export default {
   cursor: pointer;
   display: flex;
   gap: 5px;
+  align-items: flex-end;
   svg {
     path {
       fill: #2c3e50;
