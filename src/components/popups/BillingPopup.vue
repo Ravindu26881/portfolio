@@ -86,7 +86,6 @@ export default {
       state: 'checkout', // checkout, billing, success,
       senderName: '',
       senderEmail: '',
-      orderedItems: '',
       address: '',
       contactNumber: '',
       message: ''
@@ -106,12 +105,15 @@ export default {
       this.$emit('close');
     },
     sendEmail() {
+      const orderedItems = this.items.map(item =>
+          `  - ${item.text} | Qty: ${item.quantity} | Color: ${item.selectedColor || "Not Selected"} | Size: ${item.selectedSize || "Not Selected"}`
+      ).join("\n");
       const mergedMessage = `
-          Sender Email: ${this.senderEmail}
-          Ordered Items: ${this.orderedItems}
+          Customer Email: ${this.senderEmail}
           Address: ${this.address}
           Contact Number: ${this.contactNumber}
-          Message: ${this.message}
+          Message: ${this.message} \n
+          Ordered Items: \n ${orderedItems}
         `;
 
       const emailData = { to_name: "Seller", from_name: this.senderName, message: mergedMessage }
