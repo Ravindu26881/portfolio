@@ -139,7 +139,7 @@ export default {
 }
 .item-list__wrapper {
   padding: 10px 10px 65px 10px;
-  background: #ffffffbd;
+  background: white;
   border-radius: 21px;
   box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 15%);
   margin-top: 26px;

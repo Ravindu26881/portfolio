@@ -86,6 +86,7 @@ body {
   padding: 0;
   background: #cfcfcf;
   overflow-x: hidden;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
 body::-webkit-scrollbar {
