@@ -19,9 +19,9 @@
         />
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div v-for="item in filteredItems" :key="item.text" class="col-md-4 col-6 mb-4">
+      <div class="">
+        <div class="row-items">
+          <div v-for="item in filteredItems" :key="item.text" class="">
             <div @click="showItemDetails(item)" class="card item shadow-sm p-3 text-center">
               <div class="item-wrapper">
                 <img :src="item.img" alt="item" class="card-img-top item__img"/>
@@ -131,12 +131,12 @@ export default {
 }
 .filter-search-input {
   width: -webkit-fill-available;
-  max-width: 300px;
+  max-width: 200px;
   border-radius: 21px;
   margin-bottom: 15px;
   font-family: fantasy;
   padding: 22px;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: 15px;
   margin-right: 15px;
 }
@@ -147,17 +147,38 @@ export default {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px  rgb(83 34 0 / 11%);
 }
 
+.row-items {
+  display: grid;
+  width: 80vw;
+  grid-template-columns: auto auto auto auto auto auto;
+  width: 100%;
+}
+
+@media screen and (max-width: 1350px) {
+  .row-items {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .row-items {
+    grid-template-columns: auto auto auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .item-wrapper {
     padding: 0;
   }
-  .row {
-    display: flex ;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  .item-list__wrapper {
+    padding: 0;
+    width: 100vw;
   }
-  .col-md-4 {
-    width: 47%;
+}
+
+@media screen and (max-width: 500px) {
+  .row-items {
+    grid-template-columns: auto auto;
   }
 }
 

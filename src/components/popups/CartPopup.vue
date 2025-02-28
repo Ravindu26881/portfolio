@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-        <div class="button-proceed" @click="showBillingPopup()" >
+        <div v-if="items.length > 0" class="button-proceed" @click="showBillingPopup()" >
           <div>${{totalPrice}}</div>
           <div>Proceed</div>
         </div>
